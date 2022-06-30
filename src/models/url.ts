@@ -1,12 +1,12 @@
 import {Schema, model } from 'mongoose';
 
 // create an interface representing a documnet in mongodb
-interface IUrl {
-    urlCode: String,
-    longUrl: String,
-    shortUrl: String,
+ interface IUrl {
+    urlCode: string,
+    longUrl: string,
+    shortUrl: string,
     date: {
-        type: String
+        type: string
     }
 }
 

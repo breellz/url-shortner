@@ -43,4 +43,18 @@ router.post('/shorten', async (req: Request, res: Response) => {
     
 })
 
+router.post('/:code', async(req:Request, res: Response) => {
+    try {
+        const url = await Url.findOne({
+            urlCode: req.params.code
+        })
+        if(url) {
+          return  res.redirect(url.longUrl)
+        } else {
+            return res.status(404).send('url not found')
+        }
+    } catch (error: any) {
+        return res.status(500).send('server error')
+    }
+})
 export default router;
